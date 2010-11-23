@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/calc24'
+
+begin
+  # validate user input
+  digits = ARGV.map do |arg| 
+    begin
+      case arg.upcase
+        when 'J' then 11
+        when 'Q' then 12
+        when 'K' then 13
+        when 'A' then 1
+        else Integer(arg)
+      end
+    rescue ArgumentError
+      raise "error: unknown digit: '#{arg}'"
+    end
+  end
+  
+  raise "need 4 digits, such as: 5 9 5 9" unless digits.size == 4
+  
+  player = Calc24::Exec::TwentyFourGamePlayer.new(digits)
+
+  if player.solutions.empty?
+    puts "no solutions"
+  else
+    puts "found #{player.solutions.size} solutions, including #{player.solutions.first}"
+    #STDIN.gets
+    puts player.s.keys.sort.join("\n")
+  end
+rescue Exception => e
+  print "#{e.class}: " unless e.class == RuntimeError
+  puts "#{e.message}"
+  exit 1
+end
+
+
