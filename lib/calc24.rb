@@ -3,7 +3,6 @@ require 'rational'
 module Calc24
   module Exec
     
-    
     class TwentyFourGamePlayer
       EXPRESSIONS = [
         '((%d %s %d) %s %d) %s %d',
@@ -129,122 +128,6 @@ module Calc24
         '%d / (%d - (%d / %d))'
       ]
       
-      TMPEXPRESSIONS = [
-        # '((%d %s %d) %s %d) %s %d' 44
-        # +++
-        '((a + b) + c) + d',
-        # ++-
-        '((a + b) + c) - d',
-        # ++*
-        '((a + b) + c) * d',
-        '((a + b) * c) + d',
-        '((a * b) + c) + d',
-        # ++/
-        '((a + b) + c) / d',
-        '((a + b) / c) + d',
-        '((a / b) + c) + d',
-        # +--
-        '((a + b) - c) - d',
-        # +-*
-        '((a + b) - c) * d',
-        '((a + b) * c) - d',
-        '((a - b) * c) + d',
-        '((a * b) + c) - d',
-        # +-/
-        '((a + b) - c) / d',
-        '((a + b) / c) - d',
-        '((a - b) / c) + d',
-        '((a / b) + c) - d',
-        # +**
-        '((a + b) * c) * d',
-        '((a * b) + c) * d',
-        '((a * b) * c) + d',
-        # +//
-        '((a + b) / c) / d',
-        '((a / b) + c) / d',
-        '((a / b) / c) + d',
-        # ---
-        '((a - b) - c) - d',
-        # --*
-        '((a - b) - c) * d',
-        '((a - b) * c) - d',
-        '((a * b) - c) - d',
-        # --/
-        '((a - b) - c) / d',
-        '((a - b) / c) - d',
-        '((a / b) - c) - d',
-        # -**
-        '((a - b) * c) * d',
-        '((a * b) - c) * d',
-        '((a * b) * c) - d',
-        # -*/
-        '((a - b) * c) / d',
-        '((a * b) - c) / d',
-        '((a * b) / c) - d',
-        '((a / b) - c) * d',
-        # -//
-        '((a - b) / c) / d',
-        '((a / b) - c) / d',
-        '((a / b) / c) - d',
-        # ***
-        '((a * b) * c) * d',
-        # **/
-        '((a * b) * c) / d',
-        # *//
-        '((a * b) / c) / d',
-        # ///
-        '((a / b) / c) / d',
-        
-        # '(%d %s (%d %s %d)) %s %d' 8
-        '(a - (b * c)) * d',
-        '(a - (b / c)) * d',
-        '(a / (b + c)) * d',
-        '(a / (b - c)) * d',
-        '(a - (b * c)) / d',
-        '(a - (b / c)) / d',
-        '(a / (b + c)) / d',
-        '(a / (b - c)) / d',
-
-        # '(%d %s %d) %s (%d %s %d)' 15
-        '(a * b) + (c * d)',
-        '(a * b) + (c / d)',
-        '(a / b) + (c / d)',
-        '(a * b) - (c * d)',
-        '(a * b) - (c / d)',
-        '(a / b) - (c * d)',
-        '(a / b) - (c / d)',
-        '(a + b) / (c + d)',
-        '(a + b) / (c - d)',
-        '(a - b) / (c + d)',
-        '(a - b) / (c - d)',
-        '(a * b) / (c + d)',
-        '(a * b) / (c - d)',
-        '(a / b) / (c + d)',
-        '(a / b) / (c - d)',
-        
-        # '%d %s ((%d %s %d) %s %d)' 14
-        'a - ((b + c) * d)',
-        'a - ((b + c) / d)',
-        'a - ((b - c) * d)',
-        'a - ((b - c) / d)',
-        'a - ((b * c) * d)',
-        'a - ((b * c) / d)',
-        'a - ((b / c) / d)',
-        'a / ((b + c) + d)',
-        'a / ((b + c) - d)',
-        'a / ((b - c) - d)',
-        'a / ((b * c) + d)',
-        'a / ((b * c) - d)',
-        'a / ((b / c) + d)',
-        'a / ((b / c) - d)',
-        
-        # '%d %s (%d %s (%d %s %d))' 4
-        'a - (b / (c + d))',
-        'a - (b / (c - d))',
-        'a / (b - (c * d))',
-        'a / (b - (c / d))'
-      ]
-        
       OPERATORS = [:+, :-, :*, :/]
      
       @@objective = Rational(24,1)
@@ -260,37 +143,27 @@ module Calc24
      
       def solve
         digits.permutation.to_a.uniq.each do |a,b,c,d|
-          OPERATORS.each   do |op1| 
-          OPERATORS.each   do |op2| 
-          OPERATORS.each   do |op3|
-          EXPRESSIONS.each do |expr|
+          #OPERATORS.each   do |op1| 
+          #OPERATORS.each   do |op2| 
+          #OPERATORS.each   do |op3|
+          MANEXPRESSIONS.each do |expr|
             # evaluate using rational arithmetic
-            test = expr.gsub('%d', 'Rational(%d,1)') % [a, op1, b, op2, c, op3, d]
-            #test = expr.gsub('%d', 'Rational(%d,1)') % [a, b, c, d]
+            #test = expr.gsub('%d', 'Rational(%d,1)') % [a, op1, b, op2, c, op3, d]
+            test = expr.gsub('%d', 'Rational(%d,1)') % [a, b, c, d]
             value = eval(test) rescue -1  # catch division by zero
             if value == @@objective
-              @solutions << expr % [a, op1, b, op2, c, op3, d]
-              #@solutions << expr % [a, b, c, d]
+              #@solutions << expr % [a, op1, b, op2, c, op3, d]
+              @solutions << expr % [a, b, c, d]
             end
-          end;end;end;end
+          end#;end;end;end
         end
         
-        
-        
         @solutions.each do |s|
-          
-          #TODO: merge solutions
-          #@s[s.sub("#{@digits[0]}", 'a').sub("#{@digits[1]}", 'b').sub("#{@digits[2]}", 'c').sub("#{@digits[3]}", 'd')] = s
-          
-
           s.gsub!(/11/, 'J')
           s.gsub!(/12/, 'Q')
           s.gsub!(/13/, 'K')
-          
-          
         end
       end
-     
     end
    
   end
