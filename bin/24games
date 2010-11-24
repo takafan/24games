@@ -27,7 +27,7 @@ begin
   else
     puts "found #{player.solutions.size} solutions, including #{player.solutions.first}"
     #STDIN.gets
-    puts player.s.keys.sort.join("\n")
+    puts player.solutions.sort.join("\n")
   end
 rescue Exception => e
   print "#{e.class}: " unless e.class == RuntimeError
