@@ -14,7 +14,7 @@ begin
         else Integer(arg)
       end
     rescue ArgumentError
-      raise "error: unknown digit: '#{arg}'"
+      raise "unknown digit: '#{arg}'"
     end
   end
   
