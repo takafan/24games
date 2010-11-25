@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://rubygems.org/gems/24games"
   s.summary     = "24 game/Solve"
   s.description = <<-EOF
-    computes an expression to solve the 24 game if possible.
+    解24点。computes an expression to solve the 24 game if possible.
   EOF
 
   s.required_rubygems_version = ">= 1.3.6"
