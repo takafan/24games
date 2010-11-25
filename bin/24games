@@ -20,19 +20,19 @@ begin
   
   raise "need 4 digits, such as: 5 9 5 9" unless digits.size == 4
   
+  t0 = Time.now 
   player = Calc24::Exec::TwentyFourGamePlayer.new(digits)
 
   if player.solutions.empty?
     puts "no solutions"
   else
-    puts "found #{player.solutions.size} solutions, including #{player.solutions.first}"
+    puts "found #{player.solutions.size} solutions:"
     #STDIN.gets
-    puts player.solutions.sort.join("\n")
+    puts player.solutions.values.join("\n")
+    puts "#{Time.now - t0}s"
   end
 rescue Exception => e
   print "#{e.class}: " unless e.class == RuntimeError
   puts "#{e.message}"
   exit 1
 end
-
-
