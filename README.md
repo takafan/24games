@@ -1,6 +1,6 @@
 24 game/Solve
 -------------
-computes an expression to solve the 24 game if possible.
+解24点。computes an expression to solve the 24 game if possible.
 
 Using
 -----
