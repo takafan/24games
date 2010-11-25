@@ -15,7 +15,7 @@ module Calc24
       
       OPERATORS = [:+, :-, :*, :/]
 =end
-      MAN4D3S = [
+      MAN4D4S = [
         # '((%d %s %d) %s %d) %s %d' 44
         # +++
         '%d + %d + %d + %d',
@@ -149,7 +149,7 @@ module Calc24
           #OPERATORS.each   do |op1| 
           #OPERATORS.each   do |op2| 
           #OPERATORS.each   do |op3|
-          MAN4D3S.each do |expr|
+          MAN4D4S.each do |expr|
             # evaluate using rational arithmetic
             #test = expr.gsub('%d', 'Rational(%d,1)') % [a, op1, b, op2, c, op3, d]
             test = expr.gsub('%d', 'Rational(%d,1)') % [a, b, c, d]
