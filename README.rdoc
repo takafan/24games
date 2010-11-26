@@ -19,4 +19,3 @@ you get it:
 == License
 
 MIT License. See the included MIT-LICENSE file.
-
