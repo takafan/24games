@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/calc24/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = %q{24games}
@@ -17,7 +16,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = %q{24games}
 
   s.files        = `git ls-files`.split("\n")
-  s.executables  = ["24games"]
+  s.executables  = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_path = %q{lib}
 end
