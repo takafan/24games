@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
 
+require 'calc24/version'
+
 Gem::Specification.new do |s|
   s.name        = %q{24games}
   s.version     = Calc24::VERSION
