@@ -3,7 +3,7 @@ require "calc24"
 module Calc24
   module Exec
   
-    describe Calc24::Exec::TwentyFourGamePlayer do
+    describe TwentyFourGamePlayer do
       digicoll =  [
         %w{ 1 3 4 6 },
         %w{ 1 4 5 6 },
