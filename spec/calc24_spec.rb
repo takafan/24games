@@ -60,7 +60,7 @@ module Calc24
         %w{ 10 Q Q Q }
       ]
         
-      it "could found solutions in #{digicoll.count} difficult subjects." do
+      it "found solutions in #{digicoll.count} difficult subjects." do
         digicoll.each do |args|
           digits = args.map do |arg| 
             case arg.upcase
@@ -75,7 +75,7 @@ module Calc24
         end 
       end
      
-      it "has no solutions with 7 6 4 3." do
+      it "found no solutions with 7 6 4 3." do
         TwentyFourGamePlayer.new([7,6,4,3]).solutions.should be_empty
       end
       
