@@ -1,0 +1,20 @@
+h1. 24 game/Solve
+
+解24点。computes an expression to solve the 24 game if possible.
+
+h2. Using
+
+gem install 24games
+
+24games 5 9 5 9
+
+you get it:
+5 * 5 - 9 / 9
+
+h2. Authors
+
+* "Takafan":http://hululuu.com
+
+h2. License
+
+MIT License. See the included MIT-LICENSE file.
