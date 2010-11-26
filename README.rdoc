@@ -14,7 +14,7 @@ you get it:
 
 == Authors
 
-{Takafan}[http://hululuu.com]
+* {Takafan}[http://hululuu.com]
 
 == License
 
