@@ -19,5 +19,6 @@ end
 class String
   def to_p
     {'11' => 'J', '12' => 'Q', '13' => 'K'}.each {|digit, poker| self.gsub!(digit, poker)}
+    self
   end
 end
