@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = %q{http://github.com/takafan/24games"}
   s.summary     = %q{24 game/Solve}
   s.description = %q{
-    解24点。computes an expression to solve the 24 game if possible.
+    computes an expression to solve the 24 game if possible.
   }
 
   s.required_rubygems_version = %q{>= 1.3.6}

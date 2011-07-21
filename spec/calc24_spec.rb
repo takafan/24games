@@ -1,8 +1,6 @@
-if File.exists?(File.join(File.expand_path('../..', __FILE__), '.git'))
-  lib_path = File.expand_path('../../lib', __FILE__)
-  $:.unshift(lib_path)
-  require File.join(lib_path, 'calc24')
-end
+lib_path = File.expand_path('../../lib', __FILE__)
+$:.unshift(lib_path)
+require File.join(lib_path, 'calc24')
 
 module Calc24
 
