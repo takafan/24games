@@ -1,7 +1,11 @@
-require "calc24"
+if File.exists?(File.join(File.expand_path('../..', __FILE__), '.git'))
+  lib_path = File.expand_path('../../lib', __FILE__)
+  $:.unshift(lib_path)
+  require File.join(lib_path, 'calc24')
+end
 
 module Calc24
-  
+
   describe TwentyFourGamePlayer do
     digicoll =  [
       %w{ 1 3 4 6 },
@@ -58,17 +62,17 @@ module Calc24
       %w{ 9 J Q Q },
       %w{ 10 Q Q Q }
     ]
-      
+    
     it "found solutions in #{digicoll.count} difficult subjects." do
       digicoll.each do |digits|
         TwentyFourGamePlayer.new(digits.to_i).solutions.should_not be_empty
       end
     end
-     
+    
     it "found no solutions with 7 6 4 3." do
       TwentyFourGamePlayer.new([7,6,4,3]).solutions.should be_empty
     end
     
   end
-    
+  
 end

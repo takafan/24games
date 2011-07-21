@@ -15,7 +15,3 @@ you get it:
 == Authors
 
 * {Takafan}[http://hululuu.com]
-
-== License
-
-MIT License. See the included MIT-LICENSE file.
