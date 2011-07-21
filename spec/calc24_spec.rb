@@ -1,6 +1,6 @@
 lib_path = File.expand_path('../../lib', __FILE__)
 $:.unshift(lib_path)
-require File.join(lib_path, 'calc24')
+require 'calc24'
 
 module Calc24
 
