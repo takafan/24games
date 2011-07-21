@@ -3,8 +3,11 @@
 lib_path = File.expand_path('../../lib', __FILE__)
 $:.unshift(lib_path)
 require 'calc24'
+require 'calc24/version'
 
 begin
+  raise Calc24::VERSION if ['--version', '-v'].include? ARGV[0]
+  
   # validate user input
   digits = ARGV.to_i
   
