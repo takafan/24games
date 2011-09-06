@@ -10,7 +10,7 @@ class Array
           else Integer(arg)
         end
       rescue ArgumentError
-        raise "unknown digit: '#{arg}'"
+        raise "    unknown digit: '#{arg}'"
       end
     end
   end

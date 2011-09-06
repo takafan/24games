@@ -6,7 +6,7 @@
 
   gem install 24games
 
-  24games 5 9 5 9
+  24games 5959 #or 5 9 5 9
 
 you get it:
 
