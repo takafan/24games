@@ -125,16 +125,16 @@ module Calc24
 
     @@objective = Rational(24,1)
    
-    def initialize(digits)
-      @digits = digits
+    def initialize(numbers)
+      @numbers = numbers
       @solutions = {}
       solve
     end
    
-    attr_reader :digits, :solutions
+    attr_reader :numbers, :solutions
    
     def solve
-      digits.permutation.to_a.uniq.each do |a,b,c,d|
+      numbers.permutation.to_a.uniq.each do |a,b,c,d|
         MAN4D4S.each do |expr|
           # evaluate using rational arithmetic
           test = expr.gsub('%d', 'Rational(%d,1)') % [a, b, c, d]

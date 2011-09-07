@@ -6,22 +6,22 @@ require 'calc24'
 require 'calc24/version'
 
 begin
-  digits = []
+  numbers = []
   
   raise Calc24::VERSION if ['--version', '-v'].include? ARGV[0]
   
   if ARGV.count == 1 and ARGV[0].size == 4
     ARGV[0].each_char do |c|
-      digits << c
+      numbers << c.to_i
     end
   elsif ARGV.count == 4
-    digits = ARGV.to_i
+    numbers = ARGV.to_i
   else
     raise "    inputs 4 numbers such as: 5959 or 5 9 5 9"
   end
   
   t0 = Time.now 
-  player = Calc24::TwentyFourGamePlayer.new(digits)
+  player = Calc24::TwentyFourGamePlayer.new(numbers)
 
   if player.solutions.empty?
     puts "no solutions"
